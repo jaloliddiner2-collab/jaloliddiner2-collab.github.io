@@ -6,29 +6,95 @@
     <title>Jaloliddin Erkinov</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Tun rejimi (standart - qorong'u) */
+        :root {
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --border-color: #27272a;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent: #10b981;
+            --tag-bg: #27272a;
+            --tag-border: #3f3f46;
+            --tag-text: #e4e4e7;
+            --btn-bg: #27272a;
+            --btn-hover: #3f3f46;
+            --btn-text: #ffffff;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Kun rejimi (yorug') */
+        body.light-mode {
+            --bg-color: #f4f4f5;
+            --card-bg: #ffffff;
+            --border-color: #e4e4e7;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --accent: #059669;
+            --tag-bg: #f4f4f5;
+            --tag-border: #d4d4d8;
+            --tag-text: #27272a;
+            --btn-bg: #f4f4f5;
+            --btn-hover: #e4e4e7;
+            --btn-text: #18181b;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #09090b;
-            color: #f4f4f5;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Asosiy ixcham kartochka */
         .card {
-            background: #18181b;
-            border: 1px solid #27272a;
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 24px;
             max-width: 400px;
             width: 100%;
             padding: 32px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Kun/Tun almashtirish tugmasi */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--btn-bg);
+            color: var(--text-main);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--btn-hover);
+            transform: scale(1.08);
         }
 
         /* Profil belgisi (Avatar) */
@@ -44,20 +110,25 @@
             font-size: 26px;
             font-weight: 700;
             color: #09090b;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
         }
 
-        h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
 
         .role {
             font-size: 13px;
-            color: #10b981;
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 14px;
         }
 
         p {
             font-size: 14px;
-            color: #a1a1aa;
+            color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 24px;
         }
@@ -72,15 +143,21 @@
         }
 
         .skills span {
-            background: #27272a;
-            color: #e4e4e7;
+            background: var(--tag-bg);
+            color: var(--tag-text);
             font-size: 12px;
             padding: 6px 12px;
             border-radius: 10px;
+            border: 1px solid var(--tag-border);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
         /* Bog'lanish tugmalari */
-        .links { display: flex; flex-direction: column; gap: 10px; }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
         .btn {
             display: block;
@@ -89,31 +166,40 @@
             border-radius: 12px;
             font-size: 14px;
             font-weight: 600;
-            background: #27272a;
-            color: #ffffff;
-            transition: 0.2s;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            transition: all 0.2s ease;
         }
 
-        .btn:hover { background: #3f3f46; transform: translateY(-2px); }
+        .btn:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+        }
 
         .btn-primary {
             background: linear-gradient(135deg, #06b6d4, #10b981);
             color: #09090b;
         }
 
-        .btn-primary:hover { opacity: 0.9; background: linear-gradient(135deg, #06b6d4, #10b981); }
+        .btn-primary:hover {
+            opacity: 0.92;
+            background: linear-gradient(135deg, #06b6d4, #10b981);
+            box-shadow: 0 6px 16px rgba(6, 182, 212, 0.3);
+        }
     </style>
 </head>
 <body>
 
     <div class="card">
+        <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Kun/Tun rejimini o'zgartirish">☀️</button>
+
         <div class="avatar">J.E</div>
         <h1>Jaloliddin Erkinov Shuxratovich</h1>
         <div class="role">IT & Kiberxavfsizlik • Veb-dasturchi</div>
 
         <p>
-            Salom! Men Yangi Web Sayt Yaratuvchiman !
-         Albatta Katta Web Sayt Yarataman !
+            Salom! Men yangi veb-sayt yaratuvchiman!<br>
+            Albatta katta veb-saytlar yarataman!
         </p>
 
         <div class="skills">
@@ -126,11 +212,34 @@
         <div class="links">
             <a href="https://t.me/erkinov637" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Telegram orqali yozish</a>
             <a href="https://www.youtube.com/@ErkinovJaloliddin1" target="_blank" rel="noopener noreferrer" class="btn">YouTube kanalim</a>
-            <a href="https://t.me/JaloliddinWEB" target="_blank" rel="noopener noreferrer" class="btn">Telegram Kanalim</a>
+            <a href="https://t.me/JaloliddinWEB" target="_blank" rel="noopener noreferrer" class="btn">Telegram kanalim</a>
         </div>
     </div>
 
-</body>
-</html>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('themeBtn');
+            
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            
+            // Yorug' rejimda oy (qorong'uga o'tish uchun), qorong'u rejimda quyosh (yorug'ga o'tish uchun)
+            themeBtn.textContent = isLight ? '🌙' : '☀️';
+            
+            try {
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            } catch (e) {}
+        }
+
+        // Sahifa ochilganda saqlangan rejimni yuklash
+        try {
+            if (localStorage.getItem('theme') === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('themeBtn').textContent = '🌙';
+            }
+        } catch (e) {}
+    </script>
+
 </body>
 </html>
