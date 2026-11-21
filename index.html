@@ -8,87 +8,34 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Tun rejimi (boshlang'ich holat) */
-        :root {
-            --bg-page: #09090b;
-            --bg-card: #18181b;
-            --border-card: #27272a;
-            --text-main: #f4f4f5;
-            --text-muted: #a1a1aa;
-            --accent: #10b981;
-            --tag-bg: #27272a;
-            --tag-text: #e4e4e7;
-            --btn-bg: #27272a;
-            --btn-hover: #3f3f46;
-            --btn-text: #ffffff;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Kun rejimi */
-        body.light {
-            --bg-page: #f4f4f5;
-            --bg-card: #ffffff;
-            --border-card: #e4e4e7;
-            --text-main: #09090b;
-            --text-muted: #52525b;
-            --accent: #059669;
-            --tag-bg: #f4f4f5;
-            --tag-text: #27272a;
-            --btn-bg: #f4f4f5;
-            --btn-hover: #e4e4e7;
-            --btn-text: #09090b;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
+            background-color: #09090b;
+            color: #f4f4f5;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            transition: background-color 0.25s, color 0.25s;
         }
 
+        /* Asosiy ixcham kartochka */
         .card {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
+            background: #18181b;
+            border: 1px solid #27272a;
             border-radius: 24px;
             max-width: 400px;
             width: 100%;
             padding: 32px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: background-color 0.25s, border-color 0.25s, box-shadow 0.25s;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Tun / Kun almashtirish tugmasi */
-        .theme-toggle {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: var(--tag-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-card);
-            border-radius: 10px;
-            padding: 6px 10px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--btn-hover);
-        }
-
+        /* Profil belgisi (Avatar) */
         .avatar {
             width: 76px;
             height: 76px;
-            margin: 10px auto 18px;
+            margin: 0 auto 18px;
             border-radius: 20px;
             background: linear-gradient(135deg, #06b6d4, #10b981);
             display: flex;
@@ -103,18 +50,19 @@
 
         .role {
             font-size: 13px;
-            color: var(--accent);
+            color: #10b981;
             font-weight: 600;
             margin-bottom: 14px;
         }
 
         p {
             font-size: 14px;
-            color: var(--text-muted);
+            color: #a1a1aa;
             line-height: 1.6;
             margin-bottom: 24px;
         }
 
+        /* Ko'nikmalar teglari */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -124,13 +72,14 @@
         }
 
         .skills span {
-            background: var(--tag-bg);
-            color: var(--tag-text);
+            background: #27272a;
+            color: #e4e4e7;
             font-size: 12px;
             padding: 6px 12px;
             border-radius: 10px;
         }
 
+        /* Bog'lanish tugmalari */
         .links { display: flex; flex-direction: column; gap: 10px; }
 
         .btn {
@@ -140,12 +89,12 @@
             border-radius: 12px;
             font-size: 14px;
             font-weight: 600;
-            background: var(--btn-bg);
-            color: var(--btn-text);
+            background: #27272a;
+            color: #ffffff;
             transition: 0.2s;
         }
 
-        .btn:hover { background: var(--btn-hover); transform: translateY(-2px); }
+        .btn:hover { background: #3f3f46; transform: translateY(-2px); }
 
         .btn-primary {
             background: linear-gradient(135deg, #06b6d4, #10b981);
@@ -158,14 +107,13 @@
 <body>
 
     <div class="card">
-        <button type="button" class="theme-toggle" id="themeBtn">☀️ Kun</button>
-
         <div class="avatar">J.E</div>
-        <h1>Jaloliddin Erkinov</h1>
+        <h1>Jaloliddin Erkinov Shuxratovich</h1>
         <div class="role">IT & Kiberxavfsizlik • Veb-dasturchi</div>
 
         <p>
-            Salom! Men zamonaviy veb-saytlar yaratish, kiberxavfsizlik va raqamli dizayn bilan shug‘ullanaman.
+            Salom! Men Yangi Web Sayt Yaratuvchiman !
+         Albatta Katta Web Sayt Yarataman !
         </p>
 
         <div class="skills">
@@ -178,19 +126,11 @@
         <div class="links">
             <a href="https://t.me/erkinov637" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Telegram orqali yozish</a>
             <a href="https://www.youtube.com/@ErkinovJaloliddin1" target="_blank" rel="noopener noreferrer" class="btn">YouTube kanalim</a>
-            <a href="https://instagram.com/shuxratovich.637" target="_blank" rel="noopener noreferrer" class="btn">Instagram Kanalim</a>
+            <a href="https://t.me/JaloliddinWEB" target="_blank" rel="noopener noreferrer" class="btn">Telegram Kanalim</a>
         </div>
     </div>
 
-    <script>
-        const themeBtn = document.getElementById('themeBtn');
-
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light');
-            const isLight = document.body.classList.contains('light');
-            themeBtn.textContent = isLight ? '🌙 Tun' : '☀️ Kun';
-        });
-    </script>
-
+</body>
+</html>
 </body>
 </html>
